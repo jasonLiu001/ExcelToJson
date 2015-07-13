@@ -53,7 +53,7 @@ namespace ExcelToJson
                 Newtonsoft.Json.JsonSerializerSettings serializerSettings = new Newtonsoft.Json.JsonSerializerSettings();
                 serializerSettings.Converters.Add(new DataTableConverter());
                 var jsonString = JsonConvert.SerializeObject(excelDataTable, Formatting.None, serializerSettings);
-                this.txt_result.BeginInvoke(new ShowResult(showResultToTextBox),jsonString);
+                this.txt_result.Invoke(new ShowResult(showResultToTextBox),jsonString);
             });
 
             this.txt_result.Text = "正在转换中...请稍后...";

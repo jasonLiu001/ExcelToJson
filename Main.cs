@@ -31,27 +31,38 @@ namespace ExcelToJson
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        public delegate void ShowResult(string msg);
+
+        public void showResultToTextBox(string msg)
+        {
+            this.txt_result.Text = msg;
+        }
+
+        private void btn_toJson_Click(object sender, EventArgs e)
         {
             var excelFilePath = this.txt_excelFilePath.Text.Trim();
             if (string.IsNullOrEmpty(excelFilePath))
             {
                 MessageBox.Show("请选择Excel文件路径");
                 return;
-            }
+            }          
 
-            string jsonString=null; 
-
-            var task=Task.Factory.StartNew(() => {
+            Task.Factory.StartNew(() =>
+            {
                 var excelDataTable = NPOIUtility.GetDataFromExcel(excelFilePath);
                 Newtonsoft.Json.JsonSerializerSettings serializerSettings = new Newtonsoft.Json.JsonSerializerSettings();
                 serializerSettings.Converters.Add(new DataTableConverter());
-                jsonString = JsonConvert.SerializeObject(excelDataTable, Formatting.None, serializerSettings);               
+                var jsonString = JsonConvert.SerializeObject(excelDataTable, Formatting.None, serializerSettings);
+                this.txt_result.BeginInvoke(new ShowResult(showResultToTextBox),jsonString);
             });
 
             this.txt_result.Text = "正在转换中...请稍后...";
-            task.Wait();
-            this.txt_result.Text = jsonString;
+        }
+
+        
+        private void btn_saveToFile_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -67,7 +67,7 @@ namespace ExcelToJson
         /// <param name="rowCount"></param>
         private static void UpdateAirData(ISheet sheet, int cellCount, int rowCount)
         {
-            for (var i = sheet.FirstRowNum; i < rowCount + 1; i++)
+            for (var i = (sheet.FirstRowNum + 1); i < rowCount; i++)
             {
                 var row = sheet.GetRow(i);
                 if (row == null)
@@ -129,7 +129,7 @@ namespace ExcelToJson
         /// <param name="rowCount"></param>
         private static void UpdateWaterData(ISheet sheet, int cellCount, int rowCount)
         {
-            for (var i = sheet.FirstRowNum; i < rowCount; i++)
+            for (var i = (sheet.FirstRowNum + 1); i < rowCount; i++)
             {
                 var row = sheet.GetRow(i);
 

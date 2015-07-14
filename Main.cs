@@ -124,7 +124,7 @@ namespace ExcelToJson
 
         private void btn_updateWaterData_Click(object sender, EventArgs e)
         {
-            showLogMessage("正在更新Excel数据..");
+            showLogMessage("正在更新水体Excel数据..");
             TaskScheduler m_syncContextTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
             var excelFilePath = this.txt_excelFilePath.Text.Trim();
             if (string.IsNullOrEmpty(excelFilePath))
@@ -135,8 +135,8 @@ namespace ExcelToJson
 
             Task<bool> task = new Task<bool>(() =>
             {
-               bool message= NPOIUtility.UpdateExcelData(excelFilePath, Constant.Water);
-               return message;
+                bool message = UpdateExcel.UpdateExcelData(excelFilePath, Constant.Water);
+                return message;
             });
 
             task.ContinueWith(t =>
@@ -144,11 +144,12 @@ namespace ExcelToJson
                 if (task.Result)
                 {
                     this.showLogMessage("水体Excel数据生成完成！");
+                    this.showLogMessage("生成文件路径：d:\\" + Constant.Water + ".xlsx");
                 }
                 else
                 {
                     this.showLogMessage("水体Excel数据生成失败！");
-                }                
+                }
             }, m_syncContextTaskScheduler);
 
             task.Start();
@@ -156,7 +157,35 @@ namespace ExcelToJson
 
         private void btn_updateAirData_Click(object sender, EventArgs e)
         {
+            showLogMessage("正在更新空气Excel数据..");
+            TaskScheduler m_syncContextTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
+            var excelFilePath = this.txt_excelFilePath.Text.Trim();
+            if (string.IsNullOrEmpty(excelFilePath))
+            {
+                MessageBox.Show("请选择Excel文件路径");
+                return;
+            }
 
+            Task<bool> task = new Task<bool>(() =>
+            {
+                bool message = UpdateExcel.UpdateExcelData(excelFilePath, Constant.Air);
+                return message;
+            });
+
+            task.ContinueWith(t =>
+            {
+                if (task.Result)
+                {
+                    this.showLogMessage("空气Excel数据生成完成！");
+                    this.showLogMessage("生成文件路径：d:\\" + Constant.Air + ".xlsx");
+                }
+                else
+                {
+                    this.showLogMessage("空气Excel数据生成失败！");
+                }
+            }, m_syncContextTaskScheduler);
+
+            task.Start();
         }
 
         private void showLogMessage(string message)

@@ -76,9 +76,11 @@
             // 
             // txt_result
             // 
+            this.txt_result.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.txt_result.Location = new System.Drawing.Point(21, 56);
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
+            this.txt_result.ReadOnly = true;
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txt_result.Size = new System.Drawing.Size(455, 95);
             this.txt_result.TabIndex = 4;

@@ -76,11 +76,11 @@
             // 
             // txt_result
             // 
-            this.txt_result.Location = new System.Drawing.Point(33, 121);
+            this.txt_result.Location = new System.Drawing.Point(23, 134);
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_result.Size = new System.Drawing.Size(446, 249);
+            this.txt_result.Size = new System.Drawing.Size(446, 95);
             this.txt_result.TabIndex = 4;
             // 
             // btn_saveToFile
@@ -97,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(504, 412);
+            this.ClientSize = new System.Drawing.Size(482, 254);
             this.Controls.Add(this.btn_saveToFile);
             this.Controls.Add(this.txt_result);
             this.Controls.Add(this.btn_toJson);

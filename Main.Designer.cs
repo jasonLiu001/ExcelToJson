@@ -39,7 +39,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 28);
+            this.label1.Location = new System.Drawing.Point(19, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
@@ -48,7 +48,7 @@
             // txt_excelFilePath
             // 
             this.txt_excelFilePath.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.txt_excelFilePath.Location = new System.Drawing.Point(117, 25);
+            this.txt_excelFilePath.Location = new System.Drawing.Point(108, 25);
             this.txt_excelFilePath.Name = "txt_excelFilePath";
             this.txt_excelFilePath.ReadOnly = true;
             this.txt_excelFilePath.Size = new System.Drawing.Size(281, 20);
@@ -56,7 +56,7 @@
             // 
             // btn_broswerFile
             // 
-            this.btn_broswerFile.Location = new System.Drawing.Point(404, 23);
+            this.btn_broswerFile.Location = new System.Drawing.Point(401, 23);
             this.btn_broswerFile.Name = "btn_broswerFile";
             this.btn_broswerFile.Size = new System.Drawing.Size(75, 23);
             this.btn_broswerFile.TabIndex = 2;
@@ -66,30 +66,30 @@
             // 
             // btn_toJson
             // 
-            this.btn_toJson.Location = new System.Drawing.Point(313, 92);
+            this.btn_toJson.Location = new System.Drawing.Point(308, 160);
             this.btn_toJson.Name = "btn_toJson";
             this.btn_toJson.Size = new System.Drawing.Size(75, 23);
             this.btn_toJson.TabIndex = 3;
-            this.btn_toJson.Text = "To Json";
+            this.btn_toJson.Text = "转换";
             this.btn_toJson.UseVisualStyleBackColor = true;
             this.btn_toJson.Click += new System.EventHandler(this.btn_toJson_Click);
             // 
             // txt_result
             // 
-            this.txt_result.Location = new System.Drawing.Point(23, 134);
+            this.txt_result.Location = new System.Drawing.Point(21, 56);
             this.txt_result.Multiline = true;
             this.txt_result.Name = "txt_result";
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_result.Size = new System.Drawing.Size(446, 95);
+            this.txt_result.Size = new System.Drawing.Size(455, 95);
             this.txt_result.TabIndex = 4;
             // 
             // btn_saveToFile
             // 
-            this.btn_saveToFile.Location = new System.Drawing.Point(394, 92);
+            this.btn_saveToFile.Location = new System.Drawing.Point(401, 160);
             this.btn_saveToFile.Name = "btn_saveToFile";
             this.btn_saveToFile.Size = new System.Drawing.Size(75, 23);
             this.btn_saveToFile.TabIndex = 5;
-            this.btn_saveToFile.Text = "Save";
+            this.btn_saveToFile.Text = "保存";
             this.btn_saveToFile.UseVisualStyleBackColor = true;
             this.btn_saveToFile.Click += new System.EventHandler(this.btn_saveToFile_Click);
             // 
@@ -97,7 +97,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 254);
+            this.ClientSize = new System.Drawing.Size(503, 198);
             this.Controls.Add(this.btn_saveToFile);
             this.Controls.Add(this.txt_result);
             this.Controls.Add(this.btn_toJson);

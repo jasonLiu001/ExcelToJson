@@ -34,6 +34,8 @@
             this.btn_toJson = new System.Windows.Forms.Button();
             this.txt_result = new System.Windows.Forms.TextBox();
             this.btn_saveToFile = new System.Windows.Forms.Button();
+            this.btn_updateWaterData = new System.Windows.Forms.Button();
+            this.btn_updateAirData = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -95,11 +97,33 @@
             this.btn_saveToFile.UseVisualStyleBackColor = true;
             this.btn_saveToFile.Click += new System.EventHandler(this.btn_saveToFile_Click);
             // 
+            // btn_updateWaterData
+            // 
+            this.btn_updateWaterData.Location = new System.Drawing.Point(22, 160);
+            this.btn_updateWaterData.Name = "btn_updateWaterData";
+            this.btn_updateWaterData.Size = new System.Drawing.Size(75, 23);
+            this.btn_updateWaterData.TabIndex = 6;
+            this.btn_updateWaterData.Text = "水体数据";
+            this.btn_updateWaterData.UseVisualStyleBackColor = true;
+            this.btn_updateWaterData.Click += new System.EventHandler(this.btn_updateWaterData_Click);
+            // 
+            // btn_updateAirData
+            // 
+            this.btn_updateAirData.Location = new System.Drawing.Point(108, 160);
+            this.btn_updateAirData.Name = "btn_updateAirData";
+            this.btn_updateAirData.Size = new System.Drawing.Size(75, 23);
+            this.btn_updateAirData.TabIndex = 6;
+            this.btn_updateAirData.Text = "空气数据";
+            this.btn_updateAirData.UseVisualStyleBackColor = true;
+            this.btn_updateAirData.Click += new System.EventHandler(this.btn_updateAirData_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(503, 198);
+            this.Controls.Add(this.btn_updateAirData);
+            this.Controls.Add(this.btn_updateWaterData);
             this.Controls.Add(this.btn_saveToFile);
             this.Controls.Add(this.txt_result);
             this.Controls.Add(this.btn_toJson);
@@ -122,6 +146,8 @@
         private System.Windows.Forms.Button btn_toJson;
         private System.Windows.Forms.TextBox txt_result;
         private System.Windows.Forms.Button btn_saveToFile;
+        private System.Windows.Forms.Button btn_updateWaterData;
+        private System.Windows.Forms.Button btn_updateAirData;
     }
 }
 

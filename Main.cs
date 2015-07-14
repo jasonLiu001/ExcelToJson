@@ -62,8 +62,8 @@ namespace ExcelToJson
 
             task.ContinueWith(t =>
             {
-                this.txt_result.AppendText("转换完成...\r\n");
-                this.txt_result.AppendText("请点击保存按钮，保存为Json文件...\r\n");
+                this.showLogMessage("转换完成");
+                this.showLogMessage("点击保存按钮，可保存为单一的Json文件");
             }, m_syncContextTaskScheduler);
 
             task.Start();
@@ -77,9 +77,8 @@ namespace ExcelToJson
             //     this.txt_result.Invoke(new ShowResult(showResultToTextBox), jsonString);
             // });
 
-            this.txt_result.Text = "正在转换中...请稍后...\r\n";
+            showLogMessage("正在转换中...请稍后...");
         }
-
 
         private void btn_saveToFile_Click(object sender, EventArgs e)
         {
@@ -121,6 +120,48 @@ namespace ExcelToJson
                     swLog.Close();
                 }
             }
+        }
+
+        private void btn_updateWaterData_Click(object sender, EventArgs e)
+        {
+            showLogMessage("正在更新Excel数据..");
+            TaskScheduler m_syncContextTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
+            var excelFilePath = this.txt_excelFilePath.Text.Trim();
+            if (string.IsNullOrEmpty(excelFilePath))
+            {
+                MessageBox.Show("请选择Excel文件路径");
+                return;
+            }
+
+            Task<bool> task = new Task<bool>(() =>
+            {
+               bool message= NPOIUtility.UpdateExcelData(excelFilePath, Constant.Water);
+               return message;
+            });
+
+            task.ContinueWith(t =>
+            {
+                if (task.Result)
+                {
+                    this.showLogMessage("水体Excel数据生成完成！");
+                }
+                else
+                {
+                    this.showLogMessage("水体Excel数据生成失败！");
+                }                
+            }, m_syncContextTaskScheduler);
+
+            task.Start();
+        }
+
+        private void btn_updateAirData_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showLogMessage(string message)
+        {
+            this.txt_result.AppendText(message + "\r\n");
         }
     }
 }

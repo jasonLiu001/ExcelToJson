@@ -137,10 +137,10 @@ namespace ExcelToJson
                 {
                     continue;
                 }
-
-                System.Threading.Thread.Sleep(10);
+             
                 for (var j = row.FirstCellNum; j < cellCount; j++)
                 {
+                    System.Threading.Thread.Sleep(10);
                     if (j == 1)//污染等级
                     {
                         if (row.GetCell(j) == null)

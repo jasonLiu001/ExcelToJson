@@ -43,6 +43,7 @@ namespace ExcelToJson
 
         private void btn_toJson_Click(object sender, EventArgs e)
         {
+            this.DisableButtonControls();
             TaskScheduler m_syncContextTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
             var excelFilePath = this.txt_excelFilePath.Text.Trim();
             if (string.IsNullOrEmpty(excelFilePath))
@@ -64,6 +65,7 @@ namespace ExcelToJson
             {
                 this.showLogMessage("转换完成");
                 this.showLogMessage("点击保存按钮，可保存为单一的Json文件");
+                this.EnableButtonControls();
             }, m_syncContextTaskScheduler);
 
             task.Start();
@@ -125,6 +127,7 @@ namespace ExcelToJson
         private void btn_updateWaterData_Click(object sender, EventArgs e)
         {
             showLogMessage("正在更新水体Excel数据..");
+            this.DisableButtonControls();
             TaskScheduler m_syncContextTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
             var excelFilePath = this.txt_excelFilePath.Text.Trim();
             if (string.IsNullOrEmpty(excelFilePath))
@@ -150,6 +153,7 @@ namespace ExcelToJson
                 {
                     this.showLogMessage("水体Excel数据生成失败！");
                 }
+                this.EnableButtonControls();
             }, m_syncContextTaskScheduler);
 
             task.Start();
@@ -158,6 +162,11 @@ namespace ExcelToJson
         private void btn_updateAirData_Click(object sender, EventArgs e)
         {
             showLogMessage("正在更新空气Excel数据..");
+            this.DisableButtonControls();
+            this.btn_saveToFile.Enabled = false;
+            this.btn_broswerFile.Enabled = false;
+            this.btn_toJson.Enabled = false;
+            this.btn_updateWaterData.Enabled = false;
             TaskScheduler m_syncContextTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
             var excelFilePath = this.txt_excelFilePath.Text.Trim();
             if (string.IsNullOrEmpty(excelFilePath))
@@ -177,12 +186,13 @@ namespace ExcelToJson
                 if (task.Result)
                 {
                     this.showLogMessage("空气Excel数据生成完成！");
-                    this.showLogMessage("生成文件路径：d:\\" + Constant.Air + ".xlsx");
+                    this.showLogMessage("生成文件路径：d:\\" + Constant.Air + ".xlsx");                    
                 }
                 else
                 {
                     this.showLogMessage("空气Excel数据生成失败！");
                 }
+                this.EnableButtonControls();
             }, m_syncContextTaskScheduler);
 
             task.Start();
@@ -191,6 +201,24 @@ namespace ExcelToJson
         private void showLogMessage(string message)
         {
             this.txt_result.AppendText(message + "\r\n");
+        }
+
+        private void EnableButtonControls()
+        {
+            this.btn_saveToFile.Enabled = true;
+            this.btn_broswerFile.Enabled = true;
+            this.btn_toJson.Enabled = true;
+            this.btn_updateWaterData.Enabled = true;
+            this.btn_updateAirData.Enabled = true;
+        }
+
+        private void DisableButtonControls()
+        {
+            this.btn_saveToFile.Enabled = false;
+            this.btn_broswerFile.Enabled = false;
+            this.btn_toJson.Enabled = false;
+            this.btn_updateWaterData.Enabled = false;
+            this.btn_updateAirData.Enabled = false;
         }
     }
 }

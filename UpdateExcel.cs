@@ -84,7 +84,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(PollutionDegree[new Random().Next(0, 4)]);
+                        row.GetCell(j).SetCellValue(new Random().Next(1, 6));
                     }
                     else if (j == 3)//pm2.5
                     {
@@ -147,7 +147,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(PollutionDegree[new Random().Next(0, 4)]);
+                        row.GetCell(j).SetCellValue(new Random().Next(1, 6));
                     }
                     else if (j == 3)//ph值
                     {
@@ -155,7 +155,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(new Random().Next(0, 9));
+                        row.GetCell(j).SetCellValue(new Random().Next(0, 10));
                     }
                     else if (j == 4)//悬浮物
                     {
@@ -171,7 +171,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(new Random().Next(0, 250));
+                        row.GetCell(j).SetCellValue(new Random().Next(0, 251));
                     }
                     else if (j == 6)//铅含量
                     {

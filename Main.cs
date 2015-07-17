@@ -42,8 +42,7 @@ namespace ExcelToJson
         }
 
         private void btn_toJson_Click(object sender, EventArgs e)
-        {
-            this.DisableButtonControls();
+        {           
             TaskScheduler m_syncContextTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
             var excelFilePath = this.txt_excelFilePath.Text.Trim();
             if (string.IsNullOrEmpty(excelFilePath))
@@ -52,6 +51,7 @@ namespace ExcelToJson
                 return;
             }
 
+            this.DisableButtonControls();
             Task<string> task = new Task<string>(() =>
             {
                 var excelDataTable = NPOIUtility.GetDataFromExcel(excelFilePath);
@@ -125,9 +125,7 @@ namespace ExcelToJson
         }
 
         private void btn_updateWaterData_Click(object sender, EventArgs e)
-        {
-            showLogMessage("正在更新水体Excel数据..");
-            this.DisableButtonControls();
+        {    
             TaskScheduler m_syncContextTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
             var excelFilePath = this.txt_excelFilePath.Text.Trim();
             if (string.IsNullOrEmpty(excelFilePath))
@@ -135,6 +133,9 @@ namespace ExcelToJson
                 MessageBox.Show("请选择Excel文件路径");
                 return;
             }
+
+            showLogMessage("正在更新水体Excel数据..");
+            this.DisableButtonControls();
 
             Task<bool> task = new Task<bool>(() =>
             {
@@ -161,12 +162,7 @@ namespace ExcelToJson
 
         private void btn_updateAirData_Click(object sender, EventArgs e)
         {
-            showLogMessage("正在更新空气Excel数据..");
-            this.DisableButtonControls();
-            this.btn_saveToFile.Enabled = false;
-            this.btn_broswerFile.Enabled = false;
-            this.btn_toJson.Enabled = false;
-            this.btn_updateWaterData.Enabled = false;
+            
             TaskScheduler m_syncContextTaskScheduler = TaskScheduler.FromCurrentSynchronizationContext();
             var excelFilePath = this.txt_excelFilePath.Text.Trim();
             if (string.IsNullOrEmpty(excelFilePath))
@@ -174,6 +170,9 @@ namespace ExcelToJson
                 MessageBox.Show("请选择Excel文件路径");
                 return;
             }
+
+            showLogMessage("正在更新空气Excel数据..");
+            this.DisableButtonControls();
 
             Task<bool> task = new Task<bool>(() =>
             {
@@ -184,7 +183,7 @@ namespace ExcelToJson
             task.ContinueWith(t =>
             {
                 if (task.Result)
-                {
+                {                    
                     this.showLogMessage("空气Excel数据生成完成！");
                     this.showLogMessage("生成文件路径：d:\\" + Constant.Air + ".xlsx");                    
                 }

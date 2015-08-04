@@ -77,6 +77,13 @@ namespace ExcelToJson
 
                 for (var j = row.FirstCellNum; j < cellCount; j++)
                 {
+                    #region 排除"高新区"
+                    if (row.GetCell(2).ToString().Equals("高新区", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        continue;
+                    }
+                    #endregion
+
                     System.Threading.Thread.Sleep(10);
                     if (j == 1)//污染等级
                     {
@@ -140,6 +147,13 @@ namespace ExcelToJson
              
                 for (var j = row.FirstCellNum; j < cellCount; j++)
                 {
+                    #region 排除"高新区"
+                    if (row.GetCell(2).ToString().Equals("高新区", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        continue;
+                    }
+                    #endregion
+
                     System.Threading.Thread.Sleep(10);
                     if (j == 1)//污染等级
                     {

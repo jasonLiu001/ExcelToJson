@@ -45,7 +45,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Excel文件路径";
+            this.label1.Text = "Excel模板路径";
             // 
             // txt_excelFilePath
             // 
@@ -68,11 +68,11 @@
             // 
             // btn_toJson
             // 
-            this.btn_toJson.Location = new System.Drawing.Point(308, 160);
+            this.btn_toJson.Location = new System.Drawing.Point(298, 160);
             this.btn_toJson.Name = "btn_toJson";
-            this.btn_toJson.Size = new System.Drawing.Size(75, 23);
+            this.btn_toJson.Size = new System.Drawing.Size(114, 23);
             this.btn_toJson.TabIndex = 3;
-            this.btn_toJson.Text = "转换";
+            this.btn_toJson.Text = "Excel转Json";
             this.btn_toJson.UseVisualStyleBackColor = true;
             this.btn_toJson.Click += new System.EventHandler(this.btn_toJson_Click);
             // 
@@ -84,16 +84,16 @@
             this.txt_result.Name = "txt_result";
             this.txt_result.ReadOnly = true;
             this.txt_result.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txt_result.Size = new System.Drawing.Size(455, 95);
+            this.txt_result.Size = new System.Drawing.Size(529, 95);
             this.txt_result.TabIndex = 4;
             // 
             // btn_saveToFile
             // 
-            this.btn_saveToFile.Location = new System.Drawing.Point(401, 160);
+            this.btn_saveToFile.Location = new System.Drawing.Point(418, 160);
             this.btn_saveToFile.Name = "btn_saveToFile";
-            this.btn_saveToFile.Size = new System.Drawing.Size(75, 23);
+            this.btn_saveToFile.Size = new System.Drawing.Size(114, 23);
             this.btn_saveToFile.TabIndex = 5;
-            this.btn_saveToFile.Text = "保存";
+            this.btn_saveToFile.Text = "保存JSON文件";
             this.btn_saveToFile.UseVisualStyleBackColor = true;
             this.btn_saveToFile.Click += new System.EventHandler(this.btn_saveToFile_Click);
             // 
@@ -101,19 +101,19 @@
             // 
             this.btn_updateWaterData.Location = new System.Drawing.Point(22, 160);
             this.btn_updateWaterData.Name = "btn_updateWaterData";
-            this.btn_updateWaterData.Size = new System.Drawing.Size(75, 23);
+            this.btn_updateWaterData.Size = new System.Drawing.Size(115, 23);
             this.btn_updateWaterData.TabIndex = 6;
-            this.btn_updateWaterData.Text = "水体数据";
+            this.btn_updateWaterData.Text = "生成水体Excel文件";
             this.btn_updateWaterData.UseVisualStyleBackColor = true;
             this.btn_updateWaterData.Click += new System.EventHandler(this.btn_updateWaterData_Click);
             // 
             // btn_updateAirData
             // 
-            this.btn_updateAirData.Location = new System.Drawing.Point(108, 160);
+            this.btn_updateAirData.Location = new System.Drawing.Point(143, 160);
             this.btn_updateAirData.Name = "btn_updateAirData";
-            this.btn_updateAirData.Size = new System.Drawing.Size(75, 23);
+            this.btn_updateAirData.Size = new System.Drawing.Size(130, 23);
             this.btn_updateAirData.TabIndex = 6;
-            this.btn_updateAirData.Text = "空气数据";
+            this.btn_updateAirData.Text = "生成空气Excel文件";
             this.btn_updateAirData.UseVisualStyleBackColor = true;
             this.btn_updateAirData.Click += new System.EventHandler(this.btn_updateAirData_Click);
             // 
@@ -121,7 +121,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(503, 198);
+            this.ClientSize = new System.Drawing.Size(562, 198);
             this.Controls.Add(this.btn_updateAirData);
             this.Controls.Add(this.btn_updateWaterData);
             this.Controls.Add(this.btn_saveToFile);

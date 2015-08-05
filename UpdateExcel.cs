@@ -84,7 +84,7 @@ namespace ExcelToJson
                     }
                     #endregion
 
-                    System.Threading.Thread.Sleep(10);                    
+                    System.Threading.Thread.Sleep(10);
                     if (j == 1)//污染等级
                     {
                         if (row.GetCell(j) == null)
@@ -99,7 +99,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(0.001 + (0.1 - 0.001) * new Random().Next(0, 3));
+                        row.GetCell(j).SetCellValue(Convert.ToDouble("0." + new Random(Environment.TickCount).Next(0, 300).ToString()));
                     }
                     else if (j == 4)//悬浮物
                     {
@@ -107,7 +107,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(0.001 + (0.1 - 0.001) * new Random().Next(3, 6));
+                        row.GetCell(j).SetCellValue(Convert.ToDouble("0." + new Random(Environment.TickCount).Next(300, 600).ToString()));
                     }
                     else if (j == 5)//so2
                     {
@@ -115,7 +115,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(0.001 + (0.1 - 0.001) * new Random().Next(6, 9));
+                        row.GetCell(j).SetCellValue(Convert.ToDouble("0." + new Random(Environment.TickCount).Next(600, 1000).ToString()));
                     }
                     else
                     {
@@ -144,7 +144,7 @@ namespace ExcelToJson
                 {
                     continue;
                 }
-             
+
                 for (var j = row.FirstCellNum; j < cellCount; j++)
                 {
                     #region 排除"高新区"
@@ -177,7 +177,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(0.001 + (0.1 - 0.001) * new Random().Next(0, 3));
+                        row.GetCell(j).SetCellValue(Convert.ToDouble("0." + new Random(Environment.TickCount).Next(0, 300).ToString()));
                     }
                     else if (j == 5)//cod
                     {
@@ -193,7 +193,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(0.001 + (0.1 - 0.001) * new Random().Next(3, 6));
+                        row.GetCell(j).SetCellValue(Convert.ToDouble("0." + new Random(Environment.TickCount).Next(300, 600).ToString()));
                     }
                     else if (j == 7)//汞含量
                     {
@@ -201,7 +201,7 @@ namespace ExcelToJson
                         {
                             row.CreateCell(j);
                         }
-                        row.GetCell(j).SetCellValue(0.001 + (0.1 - 0.001) * new Random().Next(6, 9));
+                        row.GetCell(j).SetCellValue(Convert.ToDouble("0." + new Random(Environment.TickCount).Next(600, 1000).ToString()));
                     }
                     else
                     {

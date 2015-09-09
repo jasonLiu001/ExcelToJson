@@ -33,7 +33,7 @@ namespace ExcelToJson
 
             //total rows
             int rowCount = sheet.LastRowNum;
-            for (var i = (sheet.FirstRowNum + 1); i < rowCount; i++)
+            for (var i = (sheet.FirstRowNum + 1); i <= rowCount; i++)
             {
                 var row = sheet.GetRow(i);
                 if (row == null)

@@ -47,7 +47,9 @@ namespace ExcelToJson
                 {
                     if (row.GetCell(j) != null)
                     {
-                        dataRow[j] = row.GetCell(j).ToString();
+                        XSSFFormulaEvaluator e = new XSSFFormulaEvaluator(excelBook);//解析带有公式的Excel
+                        var cell = e.EvaluateInCell(row.GetCell(j));
+                        dataRow[j] = cell.ToString();
                     }
                 }
 
